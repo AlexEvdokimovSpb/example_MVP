@@ -1,5 +1,7 @@
-package ru.geekbrains.geekbrains_popular_libraries_kotlin.mvp.view
+package gb.myhomework.example_mvp.mvp.view
 
 interface MainView {
-    fun setButtonText(index: Int, text: String)
+    fun setOneButtonText(text: String)
+    fun setTwoButtonText(text: String)
+    fun setThreeButtonText(text: String)
 }
