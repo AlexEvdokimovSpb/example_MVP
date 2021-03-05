@@ -6,21 +6,19 @@ import gb.myhomework.example_mvp.mvp.model.CountersModel
 class MainPresenter(private val mainView: MainView) {
     private val model = CountersModel()
 
-    fun counterClick(id: Int) {
-        when (id) {
-            BUTTON_ONE -> {
-                val nextValue = model.next(BUTTON_ONE)
-                mainView.setOneButtonText(nextValue.toString())
-            }
-            BUTTON_TWO -> {
-                val nextValue = model.next(BUTTON_TWO)
-                mainView.setTwoButtonText(nextValue.toString())
-            }
-            BUTTON_THREE -> {
-                val nextValue = model.next(BUTTON_THREE)
-                mainView.setThreeButtonText(nextValue.toString())
-            }
-        }
+    fun counterOneClick() {
+        val nextValue = model.next(BUTTON_ONE)
+        mainView.setOneButtonText(nextValue.toString())
+    }
+
+    fun counterTwoClick() {
+        val nextValue = model.next(BUTTON_TWO)
+        mainView.setTwoButtonText(nextValue.toString())
+    }
+
+    fun counterThreeClick() {
+        val nextValue = model.next(BUTTON_THREE)
+        mainView.setThreeButtonText(nextValue.toString())
     }
 
     companion object {

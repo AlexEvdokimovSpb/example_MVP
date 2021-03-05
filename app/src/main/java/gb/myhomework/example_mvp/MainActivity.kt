@@ -18,13 +18,9 @@ class MainActivity : AppCompatActivity(), MainView {
         super.onCreate(savedInstanceState)
         setContentView(vb.root)
 
-        fun listener(id: Int) = View.OnClickListener {
-            presenter.counterClick(id)
-        }
-
-        vb.btnCounter1.setOnClickListener(listener(BUTTON_ONE))
-        vb.btnCounter2.setOnClickListener(listener(BUTTON_TWO))
-        vb.btnCounter3.setOnClickListener(listener(BUTTON_THREE))
+        vb.btnCounter1.setOnClickListener { presenter.counterOneClick() }
+        vb.btnCounter2.setOnClickListener { presenter.counterTwoClick() }
+        vb.btnCounter3.setOnClickListener { presenter.counterThreeClick() }
     }
 
     override fun setOneButtonText(text: String) {
@@ -39,9 +35,4 @@ class MainActivity : AppCompatActivity(), MainView {
         vb.btnCounter3.text = text
     }
 
-    companion object {
-        private const val BUTTON_ONE = 0
-        private const val BUTTON_TWO = 1
-        private const val BUTTON_THREE = 2
-    }
 }
