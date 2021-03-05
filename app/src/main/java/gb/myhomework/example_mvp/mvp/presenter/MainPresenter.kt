@@ -2,23 +2,23 @@ package gb.myhomework.example_mvp.mvp.presenter
 
 import gb.myhomework.example_mvp.mvp.view.MainView
 import gb.myhomework.example_mvp.mvp.model.CountersModel
+import moxy.MvpPresenter
 
-class MainPresenter(private val mainView: MainView) {
-    private val model = CountersModel()
+class MainPresenter(private val model: CountersModel) : MvpPresenter<MainView>() {
 
     fun counterOneClick() {
         val nextValue = model.next(BUTTON_ONE)
-        mainView.setOneButtonText(nextValue.toString())
+        viewState.setOneButtonText(nextValue.toString())
     }
 
     fun counterTwoClick() {
         val nextValue = model.next(BUTTON_TWO)
-        mainView.setTwoButtonText(nextValue.toString())
+        viewState.setTwoButtonText(nextValue.toString())
     }
 
     fun counterThreeClick() {
         val nextValue = model.next(BUTTON_THREE)
-        mainView.setThreeButtonText(nextValue.toString())
+        viewState.setThreeButtonText(nextValue.toString())
     }
 
     companion object {

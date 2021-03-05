@@ -1,18 +1,21 @@
 package gb.myhomework.example_mvp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import gb.myhomework.example_mvp.databinding.ActivityMainBinding
+import gb.myhomework.example_mvp.mvp.model.CountersModel
 import gb.myhomework.example_mvp.mvp.presenter.MainPresenter
 import gb.myhomework.example_mvp.mvp.view.MainView
+import moxy.MvpAppCompatActivity
+import moxy.ktx.moxyPresenter
 
-class MainActivity : AppCompatActivity(), MainView {
+class MainActivity : MvpAppCompatActivity(), MainView {
 
     private val vb: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
-    private val presenter = MainPresenter(this)
+    private val presenter by moxyPresenter {
+        MainPresenter(CountersModel())
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
